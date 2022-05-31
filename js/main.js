@@ -33,9 +33,6 @@ import Act1 from './stages/Act1.js';
  * homebtn.onmouseover = homeover
  * homebtn.onmouseout = msgout
  */
-const homebtn = document.querySelector('#homebtn');
-const menubtn = document.querySelector('#menubtn');
-const aboutbtn = document.querySelector('#aboutbtn');
 
 const fadeDuration = 1;
 
@@ -48,21 +45,6 @@ const stage = new Act1(container, {
   debug: false,
 });
 stage.init();
-
-homebtn.onclick = () => {
-  gsap.to(stage.overlayMaterial.uniforms.uAlpha, {
-    duration: fadeDuration,
-    value: 1,
-    onComplete: () => mainService.send({ type: 'HOME' }),
-  });
-};
-menubtn.onclick = () => {
-  gsap.to(stage.overlayMaterial.uniforms.uAlpha, {
-    duration: fadeDuration,
-    value: 1,
-    onComplete: () => mainService.send({ type: 'ONE' }),
-  });
-};
 
 /**
  * just load the world
@@ -123,10 +105,6 @@ const parseState = stateValue => {
 let currentStateStr = null;
 
 mainService.subscribe(state => {
-  homebtn.style.display = state.context.homebtn;
-  menubtn.style.display = state.context.nextbtn;
-  aboutbtn.style.display = state.context.aboutbtn;
-
   // changing world, don't want to restart world if not changed
   const stateStr = parseState(state.value);
   if (stateStr !== currentStateStr) {

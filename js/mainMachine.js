@@ -24,12 +24,12 @@ const mainMachine = createMachine(
   {
     actions: {
       selecthome: assign({
-        homebtn: 'block',
-        menubtn: 'block',
-        aboutbtn: 'block',
+        homebtn: 'none',
+        menubtn: 'none',
+        aboutbtn: 'none',
       }),
       selectone: assign({
-        homebtn: 'block',
+        homebtn: 'none',
         menubtn: 'none',
         aboutbtn: 'none',
       }),

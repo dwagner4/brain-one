@@ -4,7 +4,7 @@ import Scenery from '../systems/Scenery.js';
 export default class HeartScenery extends Scenery {
   constructor() {
     super();
-    this.hemilight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.5);
+    this.hemilight = new THREE.HemisphereLight(0xddddff, 0xffdddd, 2);
 
     this.light = new THREE.DirectionalLight(0xffffff, 0.5);
     this.light.position.set(1, 1, 1).normalize();
