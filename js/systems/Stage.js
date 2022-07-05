@@ -54,7 +54,7 @@ export default class Stage {
       35,
       this.sizes.width / this.sizes.height,
       0.1,
-      1000
+      100000
     );
 
     /** setup renderer function */

@@ -13,14 +13,17 @@ export default class BrainOne extends Actor {
     super.init();
     const glbloader = await createGlbLoader();
     const [brainData] = await Promise.all([
-      glbloader.loadAsync('/assets/brainone.glb'),
+      glbloader.loadAsync('/assets/brain-Circulation.glb'),
     ]);
     console.log(brainData);
     const brainmodel = brainData.scene;
     // for (let m = 1; m < mymodel.children.length; m += 1) {
     //   mymodel.children[m].castShadow = true;
     // }
-    this.model = brainmodel;
+    // eslint-disable-next-line prefer-destructuring
+    this.model = brainmodel.children[0];
+    // eslint-disable-next-line prefer-destructuring
+    this.brain = this.model.children[1];
     console.log(this);
   }
 
